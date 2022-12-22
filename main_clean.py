@@ -158,7 +158,7 @@ def files_for_direction(path: str) -> None:
             check_for_empty(each_folder)
         direcotorys_for_folders = [os.path.join(
             path, folder_name) for folder_name in sorted_files['folder_list']]
-        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             result = executor.map(files_for_direction, direcotorys_for_folders)
 
     create_folders()
